@@ -2,3 +2,10 @@
 node_modules
 .DS_Store
 package-lock.json
+*.pyc
+*~
+__pycache__
+myvenv
+db.sqlite3
+/static
+.DS_Store
