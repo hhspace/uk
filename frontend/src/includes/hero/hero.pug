@@ -1,0 +1,15 @@
+section.hero
+    | {% for hero in heroes %}
+    .hero__item
+        .hero__item_bg(style='background: url(static/media/{{ hero.bg }}) no-repeat; background-size: cover; background-position: center center;')
+        .hero__item_title.text-center
+            h2 {{ hero.title }}
+        
+        .hero__item_text
+            p.text-center {{ hero.text }}
+        
+        .hero__item_btn.text-center
+            a.hero__item_link.btn.btn-outline-success(href='{{ hero.link }}') 
+                span {{ hero.btnText }}
+
+    | {% endfor %}

@@ -1,0 +1,118 @@
+
+{% extends "../layouts/base.html" %}
+{% block meta %}
+<title>{{post.title}} - Аврора+</title>
+<meta property="og:title" content="{{post.title}}"/>
+<meta property="og:og:description" content="{{post.seodescr}}"/>
+<meta property="og:og:site_name" content="Управляющая компания Аврора+"/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="//xn----8sbah1b1anbu.xn--p1ai/"/>
+<meta property="og:locale" content="ru_RU"/>{% if post.img %}
+<meta property="og:image:url" content="{{post.img}}"/>{% endif %}
+<meta name="keywords" content="{{ post.seokey}}"/>
+<meta name="description" content="{{ post.seodescr}}"/>{% endblock %}
+{% block content %}
+<section class="news pt-5 pb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav aria-label="breadcrumb"></nav>
+            </div>
+        </div>
+        <ol class="breadcrumb p-0 pt-5 pb-2">
+            <li class="breadcrumb-item"><a href="/">Главная</a></li>
+            <li class="breadcrumb-item"><a href="/news/">Новости</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ post.title }}</li>
+        </ol>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="mt-2 col-12 col-xl-8 col-md-10">
+                <div class="news__img">{% if post.img %}<img src="/static/media/{{ post.img }}" alt=" {{ post.title }}"/>{% endif %}</div>
+            </div>
+            <div class="mt-2 col-12 col-xl-8 col-md-10">
+                <div class="news__item_title title">
+                    <h3>{{ post.title }}</h3><span class="news__item_date">{{ post.created_date }}</span>
+                </div>
+            </div>
+            <div class="mt-2 col-12 col-xl-8 col-md-10 news__text">{{post.text}}</div>
+        </div>
+    </div>
+</section>
+<div class="pb-5 pt-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-xl-8 col-md-10">
+                <div class="more-info">
+                    <div class="more-info__title">
+                        <h4>Уточнить информацию</h4>
+                        <p>По вопросам работы компании, публикуемых материалов и уточнению информации связанной с управляющей компанией 
+                            <nobr>"Аврора +"</nobr>
+                            <wbr/>можно обратиться по телефону <a href="tel:88007353535">88007353535</a> 
+                            или через форму <a data-toggle="collapse" href="#collapseForm" role="button" aria-expanded="false" aria-controls="collapseForm">обратной связи</a>.
+                        </p>
+                    </div>
+                    <div class="collapse more-info__form" id="collapseForm">
+                        <form class="needs-validation" novalidate="novalidate">
+                            <div class="form-row">
+                                <div class="col">
+                                    <label for="name">Ваше имя<sup class="text-danger">*</sup></label>
+                                    <input class="form-control" id="name" type="text" required="required"/>
+                                    <div class="invalid-feedback">Как к вам обращаться?</div>
+                                    <div class="valid-feedback">Приятно познакомиться!</div>
+                                </div>
+                                <div class="col">
+                                    <label for="phone">Телефон для связи<sup class="text-danger">*</sup></label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend"><span class="input-group-text" id="inputGroupPhone">+7</span></div>
+                                        <input class="form-control" id="phone" type="tel" pattern="[0-9]{6,10}" maxlength="14" aria-describedby="inputGroupPhone" placeholder="Телефон" required="required"/>
+                                        <div class="invalid-feedback">Возможно Вы не написали телефон или ввели его неправильно</div>
+                                        <div class="valid-feedback">Теперь мы знаем как c Вами связаться!</div>
+                                    </div>
+                                </div>
+                            </div><br/>
+                            <div class="form-row">
+                                <div class="col">
+                                    <label for="address">Адрес<sup class="text-danger">*</sup></label>
+                                    <input class="form-control" id="address" type="text" placeholder="г. Курск, пос. Маршала Жукова, д. 7, кв. 12" required="required"/>
+                                    <div class="invalid-feedback">Вы забыли указать адрес</div>
+                                    <div class="valid-feedback">Спасибо, что указали адрес!</div>
+                                </div>
+                            </div><br/>
+                            <div class="form-row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="exampleFormControlTextarea1">Сообщение<sup class="text-danger">*</sup></label>
+                                        <textarea class="form-control" id="message" rows="3" required="required"></textarea>
+                                        <div class="invalid-feedback">Вы забыли написать сообщение</div>
+                                        <div class="valid-feedback">Сообщение написано</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary" type="submit">Отправить</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+            });
+        }, false);
+    })();
+</script>{% endblock %}

@@ -1,0 +1,50 @@
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="text-center text-md-left col-md-12 col-lg-2 col-xl-2 pr-4">
+                <h2>{% for logo in logos %}<a class="footer__brand" href="#" title="{{logo.title}}"><img src="/static/media/{{logo.logoBW}}" alt="{{logo.title}}"/></a>{% endfor %}</h2>
+                <div class="social d-flex"><a href="#" target="_blank" title="ВК">ВК</a><a href="#" target="_blank" title="ВК">ВК</a><a href="#" target="_blank" title="ВК">ВК</a><a href="#" target="_blank" title="ВК">ВК</a></div>
+            </div>
+            <div class="col-md-12 col-lg-4 col-xl-3 p-md-0">
+                <ul class="nav flex-lg-column">
+                    <li class="nav-item"><a class="nav-link" href="/" title="Главная">Главная</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/" title="Новости и события">Новости и события</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/" title="Раскрытие информации">Раскрытие информации</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/" title="Наши объекты">Наши объекты</a></li>
+                </ul>
+            </div>
+            <div class="col-md-12 col-lg-4 col-xl-2 p-md-0">
+                <ul class="nav flex-lg-column">
+                    <li class="nav-item"><a class="nav-link" href="/" title="О компании">О компании</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/" title="Контакты">Контакты</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/" title="Документы">Документы</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/" title="Вакансии">Вакансии</a></li>
+                </ul>
+            </div>
+            <div class="address col-lg-12 col-xl-5">
+                <div class="row">
+                    <div class="col-12 mt-4 mt-xl-0">
+                        <h4>Курск</h4>
+                    </div>
+                    <div class="col-6 col-md-6 col-lg-3 col-xl-6 mt-2 mt-xl-2">
+                        <div class="address__title">Главный офис</div>
+                        <div class="address__street">ул. Ухтомского д. 7</div>
+                    </div>
+                    <div class="col-6 col-md-6 col-lg-3 col-xl-6 mt-2 mt-xl-2">
+                        <div class="address__title">Северо-запад</div>
+                        <div class="address__street">пр. Дружбы д. 1А</div>
+                    </div>
+                    <div class="col-6 col-md-6 col-lg-3 col-xl-6 mt-2">
+                        <div class="address__title">Сеймский округ</div>
+                        <div class="address__street">ул. Менделеева д. 18А</div>
+                    </div>
+                    <div class="col-6 col-md-6 col-lg-3 col-xl-6 mt-2">
+                        <div class="address__title">п. им. Маршала Жукова</div>
+                        <div class="address__street">6 квартал д. 5</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

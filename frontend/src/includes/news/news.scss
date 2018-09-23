@@ -1,0 +1,149 @@
+.news {
+    background: $bg;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 4rem;
+
+    &__item {
+        z-index: 99;
+        border-radius: 4px;
+        position: relative;
+        overflow: hidden;
+        display: block;
+        background-color: #fff;
+        transition: .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+        box-shadow: 0 10px 20px -10px rgba(0,0,0,0.1);
+
+        .news__item_img {
+            height: 120px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+
+            @media (max-width: 575px) {
+                height: auto;
+            }
+            img {
+                width: auto;
+                max-width: 100%;
+                max-height: 100%;
+            }
+        }
+
+        &_title {
+            color: #333;
+            @media (max-width:767px) {
+                min-height: 80px;
+            }
+            @media (max-width: 575px) {
+                min-height: auto;
+            }
+            h3 {
+                font-size: 1.4rem;
+                margin-bottom: 0;
+            }
+
+            .news__item_date {
+                color: #bbb;
+                font-size: 90%;
+            }
+        }
+
+
+        &_text {
+            color: #333;
+            height: 120px;
+            margin-top: 1rem;
+            p {
+                margin-bottom: 0;
+            }
+
+            @media (max-width: 767px) {
+                height: 170px;
+            }
+            @media (max-width: 575px) {
+                height: auto;
+            }
+        }
+        &.last {
+            img {
+                width: auto;
+                max-width: 100%;
+                max-height: 100px;
+            }
+            .news__item_text {
+                height: auto;
+
+                @media (max-width: 991px) {
+                    height: 120px;
+                }
+                @media (max-width: 767px) {
+                    height: 170px;
+                }
+                @media (max-width: 575px) {
+                    height: auto;
+                }
+            }
+        }
+
+        &:hover,
+        &:focus {
+            border-color: $link-hover;
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.3);
+        }
+
+        &:after {
+            display: block;
+            content: '';
+            position: absolute;
+            height: 0;
+            width: 0;
+            border-radius: 100%;
+            background-color: $link-hover;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+            opacity: .1;
+            transition: .25s ease-in-out;
+        }
+
+
+        &:before {
+            display: block;
+            content: '';
+            position: absolute;
+            height: 0;
+            width: 0;
+            border-radius: 100%;
+            background-color: $link-hover;
+            left: 0;
+            top: 0;
+            z-index: 0;
+            opacity: .05;
+            transition: .5s ease-in-out;
+        }
+
+        &:hover {
+            text-decoration: none;
+            
+            &:after {
+                height: 400px;
+                width: 400px;
+                right: -200px;
+                bottom: -200px;
+            }
+            &:before {
+                height: 200px;
+                width: 200px;
+                left: -100px;
+                top: -100px;
+            }
+        }
+    }
+    &__img {
+        img {
+            max-width: 100%;
+        }
+    }
+}

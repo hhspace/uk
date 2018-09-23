@@ -1,0 +1,24 @@
+| {% load static %}
+
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        | {% load bootstrap4 %}
+        | {% bootstrap_css %}
+        | {% bootstrap_messages %}
+        link(rel="shortcut icon" href="{% static 'media/logo-small.png' %}" type="image/png")
+        link(rel="stylesheet" href="{% static 'css/style.css' %}")
+        title Аврора+
+
+    body.home
+        | {% include '../includes/header.html' %}
+        main
+            | {% block content %}
+            | {% endblock %}
+        | {% include '../includes/footer.html' %}
+
+        | {% bootstrap_javascript jquery='full' %}
+        script(src="{% static 'js/main.min.js' %}")

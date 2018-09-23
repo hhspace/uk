@@ -1,0 +1,44 @@
+
+{% extends "../layouts/base.html" %}
+{% block meta %}
+<title>Новости - Аврора+</title>{% endblock %}
+{% block content %}
+<section class="news pt-5 pb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav aria-label="breadcrumb"></nav>
+            </div>
+        </div>
+        <ol class="breadcrumb p-0 pt-5">
+            <li class="breadcrumb-item"><a href="/">Главная</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Новости</li>
+        </ol>
+    </div>
+    <div class="container">
+        <div class="row">
+            {% for item in news %}
+            {% if forloop.first %} 
+            <div class="col-12 col-sm-6 col-lg-8 mt-4"><a class="news__item last p-4" href="{{ item.id }}/">
+                    <div class="row">
+                        <div class="d-none d-lg-flex col-lg-3 col-12 text-center news__item_img align-items-center">{% if item.img %}<img src="/static/media/{{ item.img }}" alt=" {{ item.title }}"/>{% else %}<img src="/static/media/logo-wb.png" alt=" {{ item.title }}"/>{% endif %}</div>
+                        <div class="col-lg-9 col-12">
+                            <div class="news__item_title">
+                                <h3>{{ item.title }}</h3><span class="news__item_date">{{ item.created_date }}</span>
+                            </div>
+                            <div class="news__item_text">
+                                <p>{{ item.text|linebreaksbr|truncatechars:250}}</p>
+                            </div>
+                        </div>
+                    </div></a></div>{% else %}
+            <div class="col-12 col-sm-6 col-lg-4 mt-4 align-items-center"><a class="news__item p-4" href="{{ item.id }}/">
+                    <div class="news__item_title">
+                        <h3>{{ item.title }}</h3><span class="news__item_date">{{ item.created_date }}</span>
+                    </div>
+                    <div class="news__item_text">
+                        <p>{{ item.text|linebreaksbr|truncatechars:150}}</p>
+                    </div></a></div>{% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>{% endblock %}

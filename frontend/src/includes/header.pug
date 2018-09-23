@@ -1,0 +1,42 @@
+header.fixed-top.bg-white
+    nav.navbar.navbar-expand-lg
+        .container
+            a.navbar-brand(href="{% url 'Home' %}")
+                | {% for logo in logos %}
+                img.white(src='/static/media/{{logo.logo}}' alt='{{ logo.title }}')
+                img(src='/static/media/{{logo.logoMore}}' alt='{{ logo.title }}')
+                | {% endfor %}
+            button.ml-auto.navbar-toggler.d-lg-none.justify-content-end(
+                type="button" 
+                data-toggle="collapse" 
+                data-target="#navbarHeader" 
+                aria-controls="navbarHeader" 
+                aria-expanded="false" 
+                aria-label="Навигация")
+                span
+                span
+                span
+            div#navbarHeader.collapse.navbar-collapse.justify-content-end
+                ul.navbar-nav
+                    li.nav-item
+                        a.nav-link(href="{% url 'news_list' %}") Новости
+                            span
+                    li.nav-item
+                        a.nav-link(href='#') Наши объекты
+                            span
+                    li.nav-item
+                        a.nav-link(href='#')  Раскрытие информация
+                            span
+                    li.nav-item.dropdown
+                        a#navbarAbout.nav-link.dropdown-toggle(
+                            href='#'
+                            role="button" 
+                            data-toggle="dropdown" 
+                            aria-haspopup="true" 
+                            aria-expanded="false"
+                        ) О компании
+                        .dropdown-menu.dropdown-menu-right(aria-labelledby="navbarAbout")
+                            a.dropdown-item(href='#') Контакты
+                            a.dropdown-item(href='#') Документы
+                            a.dropdown-item(href='#') Сотрудники
+                            a.dropdown-item(href='#') Вакансии

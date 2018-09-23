@@ -1,0 +1,30 @@
+
+<section class="blocks">
+    <div class="container">
+        <div class="row">
+            <div class="d-flex d-lg-none col-12 title">
+                <h2>Онлайн сервис</h2>
+            </div>{% for block in blocks %}
+            <div class="col-lg-4 mt-2 mb-2 mt-lg-0 mb-lg-0"><a class="blocks__item" href="{{ block.link }}">
+                    <div class="row">
+                        <div class="col-3 col-sm-2 col-md-1 col-lg-3 col-xl-3 d-flex align-items-center justify-content-center">
+                            <div class="blocks__item_img text-center"><img src="/static/media/{{ block.icon }}" alt=""/></div>
+                        </div>
+                        <div class="col-9 col-sm-10 col-md-11 col-lg-9 col-xl-9">
+                            <div class="row">
+                                <div class="col-12 col-sm-8 col-lg-12 mt-sm-2 mt-lg-0">
+                                    <div class="blocks__item_title">
+                                        <h2>{{ block.title }}</h2>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-4 col-lg-12 mt-sm-1 mt-lg-0">
+                                    <div class="blocks__item_btn">
+                                        <div class="blocks__item_link btn btn-success d-block" href="{{ block.link }}">{{ block.linkText }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div></a></div>{% endfor %}
+        </div>
+    </div>
+</section>

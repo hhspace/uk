@@ -1,0 +1,51 @@
+| {% extends "../layouts/base.html" %}
+
+| {% block meta %}
+title Новости - Аврора+
+| {% endblock %}
+| {% block content %}
+section.news.pt-5.pb-5
+    .container
+        .row
+            .col-12
+                nav(aria-label="breadcrumb")
+        ol.breadcrumb.p-0.pt-5
+            li.breadcrumb-item
+                a(href='/') Главная
+            li.breadcrumb-item.active(aria-current="page") Новости
+    .container
+        .row
+            | {% for item in news %}
+            | {% if forloop.first %} 
+            .col-12.col-sm-6.col-lg-8.mt-4
+                a.news__item.last.p-4(href="{{ item.id }}/")
+                    .row
+                        .d-none.d-lg-flex.col-lg-3.col-12.text-center.news__item_img.align-items-center
+                            | {% if item.img %}
+                            img(src='/static/media/{{ item.img }}' alt=' {{ item.title }}')
+                            | {% else %}
+                            img(src='/static/media/logo-wb.png' alt=' {{ item.title }}')
+                            | {% endif %}
+                        .col-lg-9.col-12
+                            .news__item_title
+                                h3
+                                    | {{ item.title }}
+                                span.news__item_date
+                                    | {{ item.created_date }}
+                            .news__item_text
+                                p
+                                    | {{ item.text|linebreaksbr|truncatechars:250}}
+            | {% else %}
+            .col-12.col-sm-6.col-lg-4.mt-4.align-items-center
+                a.news__item.p-4(href="{{ item.id }}/")
+                    .news__item_title
+                        h3
+                            | {{ item.title }}
+                        span.news__item_date
+                            | {{ item.created_date }}
+                    .news__item_text
+                        p
+                            | {{ item.text|linebreaksbr|truncatechars:150}}
+            | {% endif %}
+            | {% endfor %}
+| {% endblock %}

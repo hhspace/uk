@@ -1,0 +1,43 @@
+section.news.padding
+    .container
+        .row
+            .col-12
+                .news__title.title
+                    h2 Новости
+        .row
+            | {% for item in news %}
+            | {% if forloop.first %} 
+            .col-12.col-sm-6.col-lg-12.mt-4
+                a.news__item.last.p-4
+                    .row
+                        .d-none.d-lg-flex.col-lg-3.col-12.text-center.news__item_img.align-items-center
+                            | {% if item.img %}
+                            img(src='/static/media/{{ item.img }}' alt=' {{ item.title }}')
+                            | {% else %}
+                            img(src='/static/media/logo-wb.png' alt=' {{ item.title }}')
+                            | {% endif %}
+                        .col-lg-9.col-12
+                            .news__item_title
+                                h3
+                                    | {{ item.title }}
+                                span.news__item_date
+                                    | {{ item.created_date }}
+                            .news__item_text
+                                p
+                                    | {{ item.text|linebreaksbr|truncatechars:150}}
+            | {% else %}
+            .col-12.col-sm-6.col-lg-4.mt-4.align-items-center
+                a.news__item.p-4
+                    .news__item_title
+                        h3
+                            | {{ item.title }}
+                        span.news__item_date
+                            | {{ item.created_date }}
+                    .news__item_text
+                        p
+                            | {{ item.text|linebreaksbr|truncatechars:150}}
+            | {% endif %}
+            | {% endfor %}
+        .row
+            .col-12.mt-4.text-center.text-md-left
+                a.btn.btn-outline-success(href="{% url 'news_list' %}") Смотреть все

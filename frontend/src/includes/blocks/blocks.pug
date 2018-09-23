@@ -1,0 +1,22 @@
+section.blocks
+    .container
+        .row
+            .d-flex.d-lg-none.col-12.title
+                h2 Онлайн сервис
+            | {% for block in blocks %}
+            .col-lg-4.mt-2.mb-2.mt-lg-0.mb-lg-0
+                a.blocks__item(href='{{ block.link }}')
+                    .row
+                        .col-3.col-sm-2.col-md-1.col-lg-3.col-xl-3.d-flex.align-items-center.justify-content-center
+                            .blocks__item_img.text-center
+                                img(src="/static/media/{{ block.icon }}" alt='')
+                        .col-9.col-sm-10.col-md-11.col-lg-9.col-xl-9
+                            .row
+                                .col-12.col-sm-8.col-lg-12.mt-sm-2.mt-lg-0
+                                    .blocks__item_title
+                                        h2 {{ block.title }}
+                                .col-12.col-sm-4.col-lg-12.mt-sm-1.mt-lg-0
+                                    .blocks__item_btn
+                                        .blocks__item_link.btn.btn-success.d-block(href='{{ block.link }}')
+                                            | {{ block.linkText }}
+            | {% endfor %}

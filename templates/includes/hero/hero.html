@@ -1,0 +1,13 @@
+
+<section class="hero">{% for hero in heroes %}
+    <div class="hero__item">
+        <div class="hero__item_bg" style="background: url(static/media/{{ hero.bg }}) no-repeat; background-size: cover; background-position: center center;"></div>
+        <div class="hero__item_title text-center">
+            <h2>{{ hero.title }}</h2>
+        </div>
+        <div class="hero__item_text">
+            <p class="text-center">{{ hero.text }}</p>
+        </div>
+        <div class="hero__item_btn text-center"><a class="hero__item_link btn btn-outline-success" href="{{ hero.link }}"> <span>{{ hero.btnText }}</span></a></div>
+    </div>{% endfor %}
+</section>

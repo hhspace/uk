@@ -1,0 +1,117 @@
+| {% extends "../layouts/base.html" %}
+
+| {% block meta %}
+title {{post.title}} - Аврора+
+meta(property='og:title', content='{{post.title}}')
+meta(property="og:og:description" content="{{post.seodescr}}")
+meta(property="og:og:site_name" content="Управляющая компания Аврора+")
+meta(property='og:type', content='article')
+meta(property='og:url', content='//xn----8sbah1b1anbu.xn--p1ai/')
+meta(property="og:locale" content="ru_RU")
+| {% if post.img %}
+meta(property='og:image:url', content='{{post.img}}')
+| {% endif %}
+meta(name="keywords" content="{{ post.seokey}}")
+meta(name="description" content="{{ post.seodescr}}")
+| {% endblock %}
+
+| {% block content %}
+section.news.pt-5.pb-5
+    .container
+        .row
+            .col-12
+                nav(aria-label="breadcrumb")
+        ol.breadcrumb.p-0.pt-5.pb-2
+            li.breadcrumb-item
+                a(href='/') Главная
+            li.breadcrumb-item
+                a(href='/news/') Новости
+            li.breadcrumb-item.active(aria-current="page") {{ post.title }}
+    .container
+        .row
+            .mt-2.col-12.col-xl-8.col-md-10
+                .news__img
+                    | {% if post.img %}
+                    img(src='/static/media/{{ post.img }}' alt=' {{ post.title }}')
+                    | {% endif %}
+            .mt-2.col-12.col-xl-8.col-md-10
+                .news__item_title.title
+                    h3
+                        | {{ post.title }}
+                    span.news__item_date
+                        | {{ post.created_date }}
+            .mt-2.col-12.col-xl-8.col-md-10.news__text {{post.text}}
+.pb-5.pt-5.bg-light
+    .container
+        .row
+            .col-12.col-xl-8.col-md-10
+                .more-info
+                    .more-info__title
+                        h4 Уточнить информацию
+                        p По вопросам работы компании, публикуемых материалов и уточнению информации связанной с управляющей компанией 
+                            nobr "Аврора +"
+                            wbr 
+                            | можно обратиться по телефону 
+                            a(href='tel:88007353535') 88007353535
+                            |  
+                            | или через форму 
+                            a(data-toggle='collapse', href='#collapseForm', role='button', aria-expanded='false', aria-controls='collapseForm') обратной связи
+                            | .
+
+                    #collapseForm.collapse.more-info__form
+                        form.needs-validation(novalidate)
+                            .form-row
+                                .col
+                                    label(for='name') Ваше имя
+                                        sup.text-danger *
+                                    input#name.form-control(type='text', required)
+                                    .invalid-feedback Как к вам обращаться?
+                                    .valid-feedback Приятно познакомиться!
+                                .col
+                                    label(for='phone') Телефон для связи
+                                        sup.text-danger *
+                                    .input-group
+                                        .input-group-prepend
+                                            span.input-group-text#inputGroupPhone +7
+                                        input#phone.form-control(type='tel', pattern='[0-9]{6,10}', maxlength="14", aria-describedby='inputGroupPhone', placeholder='Телефон' required)
+                                        .invalid-feedback Возможно Вы не написали телефон или ввели его неправильно
+                                        .valid-feedback Теперь мы знаем как c Вами связаться!
+                            br
+                            .form-row
+                                .col
+                                    label(for='address') Адрес
+                                        sup.text-danger *
+                                    input#address.form-control(type='text', placeholder='г. Курск, пос. Маршала Жукова, д. 7, кв. 12' required)
+                                    .invalid-feedback Вы забыли указать адрес
+                                    .valid-feedback Спасибо, что указали адрес!
+                            br
+                            .form-row
+                                .col
+                                    .form-group
+                                        label(for='exampleFormControlTextarea1') Сообщение
+                                            sup.text-danger *
+                                        textarea#message.form-control(rows='3', required)
+                                        .invalid-feedback Вы забыли написать сообщение
+                                        .valid-feedback Сообщение написано
+
+                            button.btn.btn-primary(type='submit') Отправить
+
+script.
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+            });
+        }, false);
+    })();
+| {% endblock %}

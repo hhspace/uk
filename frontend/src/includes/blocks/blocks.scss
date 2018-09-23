@@ -1,0 +1,45 @@
+.blocks {
+    display: block;
+    margin-top: -100px;
+
+    @media (max-width: 991px) {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    a {
+        text-decoration: none;
+        transition: .25s ease-in;
+    }
+
+    &__item {
+        display: block;
+        background-color: rgba(0,0,0,.5);
+        padding: 1rem;
+
+        &_img {
+            img {
+                width: auto;
+                max-height: 48px;
+            }
+        }
+        &_title {
+            h2 {
+                color: #fff;
+                font-weight: 300;    
+                font-family: 'Noto Sans',sans-serif;
+                font-size: 14px;
+                margin-bottom: 14px;
+            }
+        }
+
+        &:hover,
+        &:focus {
+            background-color: rgba(0,0,0,.75);
+
+            .btn-success {
+                background-color: $link-hover;
+            }
+        }
+    }
+}
