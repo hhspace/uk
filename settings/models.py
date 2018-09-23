@@ -21,7 +21,6 @@ class Logo(models.Model):
     logoMobile = models.FileField(u'Логотип для маленьких экранов')
     logoBW = models.FileField(u'Черно-белый для белого фона')
     bg = models.FileField(u'Картинка фона')
-    bgColor = ColorField(u'Цвет фона', default='#FF0000')
 
     def __str__(self):
         return self.title

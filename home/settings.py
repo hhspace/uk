@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'address',
     'news',
     'home',
-    'colorfield',
 ]
 
 MIDDLEWARE = [
